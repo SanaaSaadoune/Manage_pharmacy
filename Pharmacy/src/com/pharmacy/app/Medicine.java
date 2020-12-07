@@ -38,5 +38,10 @@ public class Medicine {
 	public void setPrice(double price) {
 		this.price = price;
 	}
+	
+	@Override
+	public String toString() {
+		return "L'id : " + this.id +", Le nom : " + this.name + ", La description : "+ this.description +", Le prix : "+ this.price + "\n";
+	}
 
 }
