@@ -1,5 +1,11 @@
 package com.pharmacy.app;
 import java.util.Scanner;
+
+import com.pharmacy.models.Customer;
+import com.pharmacy.models.Medicine;
+import com.pharmacy.models.Person;
+import com.pharmacy.models.Pharmacist;
+
 import java.util.ArrayList;
 
 public class App {
@@ -38,69 +44,50 @@ public class App {
 							System.out.println("Email :");
 							String email = reader.next();
 							
-							Pharmacist pharmacien1 = new Pharmacist(id,firstName,lastName,phoneNumber,email);
-							listPharmacists.add(pharmacien1);
+							Pharmacist.addPharmacist(id,firstName,lastName,phoneNumber,email, listPharmacists);
 							
-							for(int i=0;i<listPharmacists.size();i++) {
-								System.out.println(listPharmacists.get(i).toString());
-							}
+							Pharmacist.Affichage(listPharmacists);
 							break;
 							
 						case 'e': 
-							for(int i=0;i<listPharmacists.size();i++) {
-								System.out.println(listPharmacists.get(i).toString());
-							}
+							Pharmacist.Affichage(listPharmacists);
 							
 							System.out.println("Id pharmacist:");
-							int id1 = reader.nextInt();
+							id = reader.nextInt();
 							
 							System.out.println("First name pharmacist:");
-							String firstName1 = reader.next();
+							firstName = reader.next();
 							
 							System.out.println("Last name pharmacist:");
-							String lastName1 = reader.next();
+							lastName = reader.next();
 							
 							System.out.println("Phone number pharmacist:");
-							int phoneNumber1 = reader.nextInt();
+							phoneNumber = reader.nextInt();
 							
 							System.out.println("Email pharmacist:");
-							String email1 = reader.next();
+							email = reader.next();
 							
-							listPharmacists.get(id1).setFirstName(firstName1);
-							listPharmacists.get(id1).setLastName(lastName1);
-							listPharmacists.get(id1).setPhoneNumber(phoneNumber1);
-							listPharmacists.get(id1).setEmail(email1);
+							Pharmacist.updatePharmacist(id,firstName,lastName,phoneNumber,email, listPharmacists);
 							
-							for(int i=0;i<listPharmacists.size();i++) {
-								System.out.println(listPharmacists.get(i).toString());
-							}
+							Pharmacist.Affichage(listPharmacists);
 							break;			
 							
 						case 'd': 
-							for(int i=0;i<listPharmacists.size();i++) {
-								System.out.println(listPharmacists.get(i).toString());
-							}
+							Pharmacist.Affichage(listPharmacists);
 							
 							System.out.println("Id pharmacist:");
-							int id3 = reader.nextInt();
+							id = reader.nextInt();
 							
-							listPharmacists.remove(id3);
+							Pharmacist.deletePharmacist(id,listPharmacists);
 							
-							for(int i=0;i<listPharmacists.size();i++) {
-								System.out.println(listPharmacists.get(i).toString());
-							}
+							Pharmacist.Affichage(listPharmacists);
 							break;
 						
 						case 's':
 							System.out.println("Name pharmacist :");
-							String nom = reader.next();
+							String name = reader.next();
 							
-							for(int i=0;i<listPharmacists.size();i++) {
-								if (listPharmacists.get(i).getLastName().equals(nom)) {
-									System.out.println(listPharmacists.get(i).toString());
-								}	
-							}
-							
+							Pharmacist.searchPharmacist(name,listPharmacists);
 							break;
 							
 						default :
@@ -116,7 +103,7 @@ public class App {
 					
 					switch (meth2) {
 						case 'a': 
-							int id4 = listMedicines.size();
+							int id = listMedicines.size();
 							
 							System.out.println("Name medicine :");
 							String name = reader.next();
@@ -128,68 +115,50 @@ public class App {
 							int price = reader.nextInt();
 							
 							
-							Medicine medicament = new Medicine(id4,name,description,price);
-							listMedicines.add(medicament);
+							Medicine.addMedicine(id,name,description,price, listMedicines);
 							
-							for(int i=0;i<listMedicines.size();i++) {
-								System.out.println(listMedicines.get(i).toString());
-							}
+							Medicine.Affichage(listMedicines);
 							
 							break;
 						
 						case 'e': 
-							for(int i=0;i<listMedicines.size();i++) {
-								System.out.println(listMedicines.get(i).toString());
-							}
+							Medicine.Affichage(listMedicines);
 							
 							System.out.println("Id medicine :");
-							int id5 = reader.nextInt();
+							id = reader.nextInt();
 							
 							System.out.println("Nom medicine :");
-							String name2 = reader.next();
+							name = reader.next();
 							
 							System.out.println("Description medicine :");
-							String description2 = reader.next();
+							description = reader.next();
 							
 							System.out.println("Price medicine :");
-							int price2 = reader.nextInt();
+							price = reader.nextInt();
 							
-							listMedicines.get(id5).setName(name2);
-							listMedicines.get(id5).setDescription(description2);
-							listMedicines.get(id5).setPrice(price2);
-							
-							
-							for(int i=0;i<listMedicines.size();i++) {
-								System.out.println(listMedicines.get(i).toString());
-							}
+							Medicine.updateMedicine(id,name,description,price, listMedicines);
+														
+							Medicine.Affichage(listMedicines);
 							
 							break;
 						
 						case 'd': 
-							for(int i=0;i<listMedicines.size();i++) {
-								System.out.println(listMedicines.get(i).toString());
-							}
+							Medicine.Affichage(listMedicines);
 							
 							System.out.println("Id medicine :");
-							int id6 = reader.nextInt();
+							id = reader.nextInt();
 							
-							listMedicines.remove(id6);
+							Medicine.deleteMedicine(id, listMedicines);
 							
-							for(int i=0;i<listMedicines.size();i++) {
-								System.out.println(listMedicines.get(i).toString());
-							}
+							Medicine.Affichage(listMedicines);
 							
 							break;
 						
 						case 's':
 							System.out.println("Name medicine :");
-							String name3 = reader.next();
+							name = reader.next();
 							
-							for(int i=0;i<listMedicines.size();i++) {
-								if (listMedicines.get(i).getName().equals(name3)) {
-									System.out.println(listMedicines.get(i).toString());
-								}
-							}
+							Medicine.searchMedicine(name, listMedicines);
 							
 							break;
 							
@@ -201,51 +170,31 @@ public class App {
 					
 					
 				case 'v':
-					int id7 = clientList.size();
+					int id = clientList.size();
 					
 					System.out.println("First name client :");
-					String firstName2 = reader.next();
+					String firstName = reader.next();
 					
 					System.out.println("Last name client :");
-					String lastName2 = reader.next();
+					String lastName = reader.next();
 					
 					System.out.println("Phone number client :");
-					int phoneNumber2 = reader.nextInt();
+					int phoneNumber = reader.nextInt();
 					
 					System.out.println("Email client :");
-					String email2 = reader.next();
+					String email = reader.next();
 					
-					int badge = 1;
-					int idClientExist = 0;
-				
-					boolean exist= false;
-					for(int i=0;i<clientList.size();i++) {
-						if(clientList.get(i).getFirstName().equals(firstName2) && clientList.get(i).getLastName().equals(lastName2)&& clientList.get(i).getPhoneNumber() == phoneNumber2 && clientList.get(i).getEmail().equals(email2)) {
-							exist = true;
-							idClientExist = i;
-						} 
-					}
-					
-					if(exist == true) {
-						int badgeClient = clientList.get(idClientExist).getBadge();
-						badgeClient = badgeClient+1;
-						clientList.get(idClientExist).setBadge(badgeClient);
-					}
-					
-					else {
-						Customer customer = new Customer(id7,firstName2,lastName2,phoneNumber2,email2,badge);
-						clientList.add(customer);
-					}
-					
-					
-					for(int i=0;i<clientList.size();i++) {
-						if(clientList.get(i).getBadge() > 3) {
-							System.out.println(clientList.get(i).toString() + "\n This client is loyal ! :) \n") ;
+					if(Customer.updateBadge(firstName, lastName, phoneNumber, email, clientList))
+						{
+							Customer.AffichageCustomer(clientList);
+							break;
 						}
-						else {
-							System.out.println(clientList.get(i).toString()) ;
-						}
+					else
+					{
+							Customer.addClient(firstName, lastName, phoneNumber, email, clientList);
 					}
+					
+					Customer.AffichageCustomer(clientList);
 					
 					break;
 				default :

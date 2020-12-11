@@ -1,6 +1,8 @@
-package com.pharmacy.app;
+package com.pharmacy.models;
 
-public class Pharmacist {
+import java.util.ArrayList;
+
+public class Person {
 	
 	private int id;
 	
@@ -15,7 +17,7 @@ public class Pharmacist {
 	
 	
 	
-	public Pharmacist(int id, String firstName, String lastName, int phoneNumber, String email) {
+	public Person(int id, String firstName, String lastName, int phoneNumber, String email) {
 		this.id=id;
 		this.firstName = firstName;
 		this.lastName = lastName;
